@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<Form class="login-container" method="post" action="~/User/TheLoginProsses">
+    <input type="text" name="email" placeholder="Email or phone number">
+    <input type="password" name="password" placeholder="Password">
+    <a href="#">Did you forget your password? yes, click here</a>
+    <a asp-area="" asp-controller="User" asp-action="Rigster">If you don’t have an account click here to Create Account</a>
+    <button>login</button>
+</Form>

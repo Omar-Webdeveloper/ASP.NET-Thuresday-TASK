@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "EditProfile";
+}
+
+<h1>EditProfile</h1>
+
+
+@* <h2>First Name :@ViewData["UserFirstName"]</h2> *@
+@* <h2>Last Name  :@ViewData["UserSecondName"]</h2> *@
+@* <h2>Email :@ViewData["UserEmail"]</h2> *@
+@* <h2>Address :@ViewData["UserAddress"]</h2> *@
+@* <h2>Phone number :@ViewData["UserPhone"]</h2> *@
+
+
+
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50"></span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form action="~/User/TheEditProfileProsses" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" name="new_name" placeholder="first name" value="@ViewData["UserFirstName"]"></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" name="newsecond_name" value="@ViewData["UserSecondName"]" placeholder="surname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" name="newphone" placeholder="enter phone number" value="@ViewData["UserPhone"]"></div>
+                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" name="newaddress" placeholder="enter address line 1" value="@ViewData["UserAddress"]"></div>
+
+                        <div class="col-md-12"><label class="labels">Email </label><input type="text" class="form-control" name="newemail" placeholder="enter email id" value="@ViewData["UserEmail"]"></div>
+                    </div>
+
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+
+                </form>
+                 </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>

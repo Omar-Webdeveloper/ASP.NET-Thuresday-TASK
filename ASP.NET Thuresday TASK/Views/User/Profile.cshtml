@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Profile</h1>
+
+<h2>First Name :@ViewData["UserFirstName"]</h2>
+<h2>Last Name  :@ViewData["UserSecondName"]</h2>
+<h2>Email :@ViewData["UserEmail"]</h2>
+<h2>Address :@ViewData["UserAddress"]</h2>
+<h2>Phone number :@ViewData["UserPhone"]</h2>
+<a asp-area="" asp-controller="User" asp-action="EditProfile">Edit your Profile</a>
+
