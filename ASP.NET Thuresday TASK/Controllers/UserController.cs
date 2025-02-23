@@ -45,58 +45,22 @@ namespace ASP.NET_Thuresday_TASK.Controllers
 
             if (V_email == UserName && V_password == UserId)
             {
-                //if (User.RememberMe)
-                //{
-                //    CookieOptions option = new CookieOptions
-                //    {
-                //        Expires = DateTime.Now.AddDays(30);
-                //    };
-                //    Response.Cookies.Append("UserName", user.Username, option);
-                //    Response.Cookies.Append("Password", user.Password, option);
-                //}
+
                 Response.Cookies.Append(CookieUserID, V_email, options);
                 Response.Cookies.Append(CookieUserpPass, V_password, options);
-
-                return RedirectToAction("Index", "Home");
+                TempData["Role"] = "User"; return RedirectToAction("Index", "Home");
 
             }
             else if (V_email == "Admin@gmail.com" && V_password == "Admin") 
             {
+                TempData["Role"] = "Admin";
                 return RedirectToAction("Index", "Home");
 
             }
+            TempData["Role"] = "Guest";
             return RedirectToAction("Login");
         }
-        //[HttpPost]
-        //public IActionResult TheCookies() 
-        //{
-        //    string V_email = Request.Form["email"];
-
-        //    string V_password = Request.Form["password"];
-
-        //    string? UserName = HttpContext.Session.GetString(SessionUserEmail);
-        //    string? UserId = HttpContext.Session.GetString(SessionUserPassword);
-        //    string V_RememberMe = Request.Form["RememberMe"];
-
-        //    if (V_RememberMe != null && UserName != null && UserId != null)
-        //    {
-        //        CookieOptions options = new CookieOptions
-        //        {
-        //            Domain = "example.com", // Set the domain for the cookie
-        //            Expires = DateTime.Now.AddDays(7), // Set expiration date to 7 days from now
-        //            Path = "/", // Cookie is available within the entire application
-        //            Secure = true, // Ensure the cookie is only sent over HTTPS
-        //            HttpOnly = true, // Prevent client-side scripts from accessing the cookie
-        //            MaxAge = TimeSpan.FromDays(7), // Another way to set the expiration time
-        //            IsEssential = true // Indicates the cookie is essential for the application to function
-        //        };
-        //        Response.Cookies.Append(CookieUserID, V_email, options);
-        //        Response.Cookies.Append(CookieUserpPass, V_password, options);
-        //        return RedirectToAction("Index", "Home");
-
-        //    }
-        //    return RedirectToAction("Login");
-        //}
+       
         public IActionResult Rigster()
         {
             return View();

@@ -25,6 +25,9 @@ namespace ASP.NET_Thuresday_TASK.Controllers
 
         public IActionResult Index()
         {
+            var message = TempData["Message"]?.ToString();
+            ViewData["Message"] = message;
+
             string? UserFirstName = HttpContext.Session.GetString(SessionFirst_UserName);
             string? UserSecondName = HttpContext.Session.GetString(SessionSecnod_UserName);
             string? UserEmail = HttpContext.Session.GetString(SessionUserEmail);
@@ -45,12 +48,10 @@ namespace ASP.NET_Thuresday_TASK.Controllers
                 Response.Cookies.Append(CookieUserID, UserEmail, options);
                 Response.Cookies.Append(CookieUserpPass, UserPass, options);
             }
-            //Response.Cookies.Append(CookieUserID, UserEmail, options);
-            //Response.Cookies.Append(CookieUserpPass, UserPass, options);
+       
             ViewData["UserFirstName"] = UserFirstName;
             ViewData["UserSecondName"] = UserSecondName;
 
-            //string? UserLoginned = Request.Cookies.ContainsKey("UserId1") ? Request.Cookies["UserId1"] : null;
             string? UserName = Request.Cookies.ContainsKey(CookieUserID) ? Request.Cookies[CookieUserID] : null;
             return View();
         }
