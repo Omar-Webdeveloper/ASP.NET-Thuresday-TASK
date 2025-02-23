@@ -6,9 +6,10 @@
 <h1>Login</h1>
 
 <Form class="login-container" method="post" action="~/User/TheLoginProsses">
-    <input type="text" name="email" placeholder="Email or phone number">
-    <input type="password" name="password" placeholder="Password">
-    <a href="#">Did you forget your password? yes, click here</a>
-    <a asp-area="" asp-controller="User" asp-action="Rigster">If you don’t have an account click here to Create Account</a>
+    <input type="text" name="email" placeholder="Email or phone number"><br />
+    <input type="password" name="password" placeholder="Password"><br />
+    <input type="checkbox" name="RememberMe" value="lsRememberMe" id="rememberMe" @* asp-for="RememberMe" *@ action="" ~ /User/TheCookies"> <label for="rememberMe">Remember me</label><br />
+    <a href="#">Did you forget your password? yes, click here</a><br />
+    <a asp-area="" asp-controller="User" asp-action="Rigster">If you don’t have an account click here to Create Account</a><br />
     <button>login</button>
 </Form>
