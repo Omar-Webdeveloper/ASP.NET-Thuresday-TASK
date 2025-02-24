@@ -1,22 +1,10 @@
-using ASP.NET_Thuresday_TASK.Models;
 using Microsoft.EntityFrameworkCore;
+using Task_1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-
-builder.Services.AddDistributedMemoryCache();
-
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromDays(7);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
-
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
 
@@ -36,7 +24,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

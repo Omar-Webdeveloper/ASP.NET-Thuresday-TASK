@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Task_1.Models.Department>
+
+<h1>All Department</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Department in Model)
+        {
+            <tr>
+                <td>@Department.Id</td>
+                <td>@Department.DepartmentName</td>
+                <td>@Department.DepartmentManger</td>
+                <td>@Department.Location</td>
+                <td>@Department.Budget</td>
+                <!-- Add other columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Department" asp-action="Create">Create New Department</a>
