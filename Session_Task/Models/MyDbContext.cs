@@ -34,6 +34,7 @@ namespace Session_Task.Models
 
                 entity.Property(e => e.Email).HasMaxLength(100);
                 entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Password).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -10,5 +10,16 @@
     <input type="text" asp-for="Name" /><br>
     <label asp-for="Email">Email:</label><br>
     <input type="text" asp-for="Email" /><br>
+    <label asp-for="Password">Password:</label><br>
+    <input type="password" asp-for="Password" /><br>
+    <label>Repeat Password:</label><br>
+    <input type="password" name="repeatPassword" /><br>
     <button type="submit">Register</button>
 </form>
+
+@if (ViewData.ModelState["PasswordMismatch"] != null)
+{
+    <div class="alert alert-danger">
+        @ViewData.ModelState["PasswordMismatch"].Errors[0].ErrorMessage
+    </div>
+}

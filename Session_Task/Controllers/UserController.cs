@@ -19,10 +19,16 @@ namespace Session_Task.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(User user)
+        public IActionResult Register(User user, string repeatPassword)
         {
             if (ModelState.IsValid)
             {
+                if (user.Password != repeatPassword)
+                {
+                    ModelState.AddModelError("PasswordMismatch", "Passwords do not match.");
+                    return View(user);
+                }
+
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 return RedirectToAction("Login");
@@ -39,7 +45,7 @@ namespace Session_Task.Controllers
         public IActionResult Login(User user)
         {
             var existingUser = _context.Users
-                .FirstOrDefault(u => u.Name == user.Name && u.Email == user.Email);
+                .FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
             if (existingUser != null)
             {
