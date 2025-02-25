@@ -55,7 +55,7 @@ public partial class MyDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("description");
             entity.Property(e => e.Image)
-                .HasMaxLength(255)
+                .HasMaxLength(2048)
                 .IsUnicode(false)
                 .HasColumnName("image");
             entity.Property(e => e.Name)
