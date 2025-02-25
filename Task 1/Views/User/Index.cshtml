@@ -1,9 +1,10 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
+@{ 
+     ViewData["Title"] = "Index";
+ } 
 
-<h1>Index</h1>
-<a asp-action="All_users">All_users</a>
-<a asp-action="Create">Create</a>
+ <h1>Index</h1> 
+ <a asp-controller="User" asp-action="All_users">All_users</a> 
+ <a asp-controller="User" asp-action="Create">Create</a> 
+ <a asp-controller="User" asp-action="Edit">Edit</a>
 

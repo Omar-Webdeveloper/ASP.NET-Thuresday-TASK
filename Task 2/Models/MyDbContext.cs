@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace ASP.NET_Thuresday_TASK.Models;
+namespace Task_2.Models;
 
 public partial class MyDbContext : DbContext
 {
@@ -16,6 +16,8 @@ public partial class MyDbContext : DbContext
     }
 
     public virtual DbSet<Department> Departments { get; set; }
+
+    public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -39,6 +41,31 @@ public partial class MyDbContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("Department_Name");
             entity.Property(e => e.Location).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Product__3214EC27A1B13588");
+
+            entity.ToTable("Product");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Description)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("description");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("image");
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.Price)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("price");
         });
 
         modelBuilder.Entity<User>(entity =>

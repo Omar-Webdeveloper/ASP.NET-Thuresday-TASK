@@ -1,0 +1,22 @@
+﻿@model Task_1.Models.User
+
+<h1>User Details</h1>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <!-- Add other user properties as needed -->
+</table>
+
+<a asp-controller="User" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-controller="User" asp-action="Index">Back to List</a>
